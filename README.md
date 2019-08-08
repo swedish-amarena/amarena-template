@@ -12,7 +12,7 @@ The folder *scripts* have the scripts I use. Add to path or move to ~/bin
 
 The scripts assume a clone in home directory
 
-## To use the scripts just type
+### To use the scripts just type
 
 ```
 docArena <file>.md
@@ -22,7 +22,7 @@ slidesArena <file>.md
 
 dependent on what type of document you are compiling
 
-## Check out the sample.md file
+### Check out the sample.md file
 
 extra for presentations: Easy collumn making:
 
@@ -36,7 +36,7 @@ extra for presentations: Easy collumn making:
 \eco
 ```
 
-## if you need a latex start-file go
+### if you need a latex start-file go
 
 ```
 pandoc -t latex --template \
