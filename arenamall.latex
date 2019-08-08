@@ -1,0 +1,334 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$for(classoption)$$classoption$$sep$,$endfor$a4paper]{$documentclass$}
+$if(fontfamily)$
+\usepackage{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+$if(mainfont)$
+    \setmainfont{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek){$mathfont$}
+$endif$
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$author-meta$},
+            pdftitle={$title-meta$},
+            colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+%
+% ---
+%
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \pagenumbering{arabic}
+% \lhead{\itshape $title$}
+% \chead{}
+% \rhead{\itshape{\nouppercase{\leftmark}}}
+% \lfoot{v $version$}
+% \cfoot{}
+% \rfoot{\thepage}
+%
+% ---
+%
+% ---
+% ------- Heading and footing -------------------------------
+% ---
+%
+\usepackage[pdftex]{graphicx,color} 
+\usepackage{datetime}
+\renewcommand{\dateseparator}{-}
+\newcommand{\todayiso}{\the\year \dateseparator \twodigit\month \dateseparator \twodigit\day}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\addtolength{\headheight}{14.5pt} % make space for the rule
+\addtolength{\footskip}{14.5pt} % make space for the rule
+\pagestyle{fancy}
+\fancyhf{} % delete current setting for header and footer
+\fancyhead[LO,LE]{\hspace{-10mm}
+  \sffamily \bfseries \color{swgrey2} \large
+  Swedish Arena for Additive Manufacturing of Metals
+  % \includegraphics[width=30mm]{\string~/amarena-template/arenaLogo.png}
+}
+\fancyhead[RO,RE]{\todayiso ~~~ \thepage(\pageref{LastPage}) \hspace{-20mm}}
+% \yyyymmdddate \isodate
+\fancyfoot[LE,LO]{\scriptsize \sffamily
+  \begin{tabular}{lc}
+    \hspace{-20mm}
+    \includegraphics[width=170mm, height=5mm]{\string~/amarena-template/arenaHeader.png}
+    \\
+    \begin{tabular}{l l}
+      \textbf{Swedish Arena for Additive Manufacturing of Metals} & \\
+      Contact:  https://amdata.proj.kth.se/contact & \\
+    \end{tabular}
+  \end{tabular}
+}
+\renewcommand{\headrulewidth}{0.0pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+\fancypagestyle{plain}{%
+\fancyhead{} % get rid of headers on plain pages
+\renewcommand{\headrulewidth}{0pt} % and the line
+}
+%
+% ---
+%
+% \usepackage{color}
+\definecolor{bi}{rgb}{1,1,1}
+\definecolor{cz}{rgb}{0,0,0}
+% \definecolor{sz}{rgb}{0.90196079, 0.90196079, 0.90196079}
+% \definecolor{nieb}{rgb}{0.12941177, 0.45882353, 0.60784316}
+% \definecolor{ziel}{rgb}{0.44313726 0.78431374 0.21568628}
+% \definecolor{pom}{rgb}{1 0.49803922 0.16470589}
+\definecolor{turk}{rgb}{0,0.39216,0.43137}
+% \definecolor{bla}{rgb}{0 0.28515625 0.5625}
+% \definecolor{gro}{rgb}{0.21875 0.484375 0.16796875}
+\definecolor{swg}{RGB}{65, 118, 48}
+\definecolor{swb}{RGB}{ 54, 95, 145}
+\definecolor{swbT}{RGB}{ 23, 54, 93}
+% \definecolor{swt}{RGB}{ 0, 123, 135}
+% \definecolor{swtljus}{RGB}{ 0, 184, 202}
+% \usepackage{color}
+\definecolor{darkgreen}{cmyk}{0.22, 0.0, 0.31, 0.60}
+\definecolor{swgrey}{RGB}{51,51,51}
+\definecolor{swgrey2}{RGB}{101,111,111}
+\definecolor{greyl2}{RGB}{241,241,241}
+
+
+
+\newcommand{\swg}{\color{swg}}
+\newcommand{\swb}{\color{swb}}
+\newcommand{\swbT}{\color{swbT}}
+\newcommand{\bl}{\color{cz}}
+\newcommand{\red}{\color{red}}
+
+% \newcommand{\swl}{swtljus}
+\newcommand{\sg}{\color{turk}}
+\newcommand{\bi}{bi}
+
+\newcommand{\bco}{\begin{itemize}}
+\newcommand{\co}{\item }
+\newcommand{\eco}{\end{itemize}}
+%
+% ---
+%-------- Inget indrag men mellanrum i styckena -----------------------
+% ------- Lite hogre header och mer text per sida ---------------------
+% ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\setlength{\voffset}{-12mm}
+\setlength{\hoffset}{-5mm}
+\addtolength{\textheight}{24mm}
+\addtolength{\textwidth}{8mm}
+\addtolength{\topmargin}{-10mm}
+\addtolength{\headsep}{5mm}
+\addtolength{\footskip}{5mm}
+% ----------- Andrar Caption till nagot snyggt ------------------------
+\usepackage[margin=10pt,font=small,format=plain,labelfont=bf,textfont=it]{caption}
+%
+% ---
+%
+$if(lang)$
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage{$mainlang$}
+  \setotherlanguages{$for(otherlang)$$otherlang$$sep$,$endfor$}
+\else
+  \usepackage[shorthands=off,$lang$]{babel}
+\fi
+$endif$
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage{biblatex}
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+$endif$
+$if(tables)$
+\usepackage{longtable,booktabs}
+$endif$
+$if(graphics)$
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{2}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+
+% \sffamily
+\usepackage{sectsty}
+\sectionfont{\Large\color{swgrey2}}
+\subsectionfont{\large\color{swgrey2}}
+\subsubsectionfont{\color{swgrey2}}
+
+$if(title)$
+\title{
+  \color{darkgreen}\huge
+  \textbf{$title$}
+  $if(subtitle)$
+   \textbf{\color{darkgreen} $subtitle$}
+  $endif$
+$if(author)$
+\author{\textbf{$author$}}
+% \author{$for(author)$ \color{swbT}\textbf{$author$}$sep$ \and $endfor$}
+$endif$}
+$endif$
+\date{$date$}
+$for(header-includes)$
+$header-includes$
+$endfor$
+%
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+%
+\begin{document}
+$if(title)$
+\maketitle
+\vspace{-10mm}
+{\color{black}\rule[0mm]{\textwidth}{1pt}}
+$endif$
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+%
+$for(include-before)$
+$include-before$
+%
+$endfor$
+$if(toc)$
+{
+\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+$body$
+
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

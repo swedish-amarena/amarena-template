@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -z "$1" ]
+  then
+      cat $HOME/amarena-template/README.md
+else
+
+    CHARSET="$(file -bi "$1"|awk -F "=" '{print $2}')"
+    iconv -f "$CHARSET" -t utf8 "$1" -o "$1.new"
+
+    # iconv -t utf8 $1 -o "$1.new"
+    pandoc -t latex --template $HOME/amarena-template/arenamall.latex "$1.new" -o $1'.doc.pdf'
+    rm "$1.new"
+fi
