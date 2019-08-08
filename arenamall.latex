@@ -103,9 +103,9 @@ $endif$
 \fancyhead[RO,RE]{\todayiso ~~~ \thepage(\pageref{LastPage}) \hspace{-20mm}}
 % \yyyymmdddate \isodate
 \fancyfoot[LE,LO]{\scriptsize \sffamily
-  \begin{tabular}{lc}
+  \begin{tabular}{l}
     \hspace{-20mm}
-    \includegraphics[width=170mm, height=5mm]{\string~/amarena-template/arenaHeader.png}
+      \includegraphics[width=170mm, height=5mm,keepaspectratio=false]{\string~/amarena-template/arenaHeader.png}
     \\
     \begin{tabular}{l l}
       \textbf{Swedish Arena for Additive Manufacturing of Metals} & \\
