@@ -4,8 +4,13 @@ The templates in this repository are used for
 the **Swedish Arena for Additive Manufacturing of Metals**
 (description below). 
 
-All templates are licensed by the Creative Commons **CC BY-NC**
-license except those that are based on the pandoc orig. templates,
+These templates are made within the umbrella of the 
+**Swedish Arena for Additive Manufacturing of Metals**
+and are for their documents, but hopefully someone else can have use
+for the templates and files outside of the arena.
+
+All templates and files are licensed by the Creative Commons **CC BY-NC**
+license except those that are based on the pandoc orig. templates:
 description in LICENSE.md
 
 
