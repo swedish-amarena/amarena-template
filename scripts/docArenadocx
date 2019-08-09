@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ -z "$1" ]
+  then
+      cat $HOME/amarena-template/README.md
+else
+
+    CHARSET="$(file -bi "$1"|awk -F "=" '{print $2}')"
+    iconv -f "$CHARSET" -t utf8 "$1" -o "$1.new"
+    sed -i 1,3's/%/ \n /g' $1.new 
+    # iconv -t utf8 $1 -o "$1.new"
+    pandoc -t latex -o .mydoc.tex "$1.new" && \
+	pandoc -f latex -t docx --data-dir=$HOME/amarena-template/ -o $1'.docx' .mydoc.tex
+    rm "$1.new"
+    rm .mydoc.tex
+fi
+
+##pandoc -f markdown -t latex -o mydoc.tex apiGuide.md && pandoc -f latex -t docx --data-dir=$HOME/amarena-template/msOffice/ -o apiGuide.md.docx mydoc.tex
