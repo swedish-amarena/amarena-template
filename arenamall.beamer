@@ -17,7 +17,18 @@
 % \setbeameroption{show notes on second screen}
 
 
+%
+% -- CUSTOM COMMANDS
+%
+\newcommand{\bco}{\begin{columns}[t]}
+\newcommand{\co}{\column{5cm}}
+\newcommand{\eco}{\end{columns}}
+\newcommand{\cent}[1]{\begin{center}#1\end{center}}
 
+
+%
+% --- THE COLORS
+%
 \definecolor{bi}{rgb}{1,1,1}
 \definecolor{cz}{rgb}{0,0,0}
 \definecolor{sz}{rgb}{0.90196079, 0.90196079, 0.90196079}
@@ -25,7 +36,6 @@
 \definecolor{ziel}{rgb}{0.44313726 0.78431374 0.21568628}
 \definecolor{pom}{rgb}{1 0.49803922 0.16470589}
 \definecolor{turk}{rgb}{0 0.39216 0.43137}
-%\definecolor{turk}{rgb}{0 0.546875 0.59765625}
 \definecolor{bla}{rgb}{0 0.28515625 0.5625}
 \definecolor{gro}{rgb}{0.21875 0.484375 0.16796875}
 \definecolor{swg}{RGB}{65, 118, 48}
@@ -46,12 +56,6 @@
 \newcommand{\swl}{swtljus}
 \newcommand{\sg}{\color{turk}}
 \newcommand{\bi}{bi}
-
-
-\newcommand{\bco}{\begin{columns}[t]}
-\newcommand{\co}{\column{5cm}}
-\newcommand{\eco}{\end{columns}}
-
 
 
 %%%% SLIDE ELEMENTS
@@ -85,7 +89,7 @@
 \setbeamerfont{frametitle}{series=\bfseries}
 
 \setbeamercolor{block title}{fg=black, bg=swgljus}
-\setbeamercolor{block body}{fg=white, bg=swgljus2}
+\setbeamercolor{block body}{fg=black, bg=swgljus2}
 
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}

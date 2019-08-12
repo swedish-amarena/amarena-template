@@ -56,6 +56,11 @@ extra for presentations: Easy collumn making:
 \eco
 ```
 
+Text in centre:
+
+    \cent{<text>}
+	
+
 ### if you need a latex start-file go
 
 ```
